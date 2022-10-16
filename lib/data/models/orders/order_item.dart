@@ -2,15 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'order_item.g.dart';
 
-// [
-// {
-// "drugName": null,
-// "userFullName": "",
-// "quantity": 3,
-// "date": "0001-01-01T00:00:00",
-// "paymentType": 1,
-// "cardNumber": 12
-// },
 @JsonSerializable()
 class OrderItem {
   @JsonKey(defaultValue: "", name: "drugName")

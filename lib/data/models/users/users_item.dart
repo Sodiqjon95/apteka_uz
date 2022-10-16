@@ -1,14 +1,3 @@
-// [
-// {
-// "id": 4,
-// "firstName": "first",
-// "lastName": "name",
-// "imageUrl": "https://pharmacy-db-demo.herokuapp.com//Images/IMG_c7147286-7d41-4307-a0a2-69531c5dc0d8photo_2022-04-15_08-41-08.jpg",
-// "email": "dvgh@gmail.com",
-// "emailConfirmed": false,
-// "phoneNumber": "+998997889878",
-// "role": 1
-// },
 import 'package:json_annotation/json_annotation.dart';
 
 part 'users_item.g.dart';
@@ -33,7 +22,7 @@ class UsersItem {
   @JsonKey(defaultValue: "", name: "emailConfirmed")
   String emailConfirmed;
 
-  @JsonKey(defaultValue: 0, name: "price")
+  @JsonKey(defaultValue: 0, name: "phoneNumber")
   int phoneNumber;
 
   @JsonKey(defaultValue: 0, name: "role")
