@@ -1,4 +1,4 @@
-import 'package:apteka_uz/utils/constantes.dart';
+import 'package:apteka_uz/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

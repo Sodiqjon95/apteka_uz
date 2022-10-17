@@ -1,5 +1,5 @@
-import 'package:apteka_uz/routes/routers.dart';
-import 'package:apteka_uz/utils/constantes.dart';
+import 'package:apteka_uz/presentations/routes/routers.dart';
+import 'package:apteka_uz/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: MyRouter.generateRoute,
-      initialRoute:  splashPage,
+      initialRoute: splashPage,
     );
   }
 }
