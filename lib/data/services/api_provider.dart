@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:apteka_uz/data/services/api_client.dart';
 import 'package:dio/dio.dart';
 
@@ -8,9 +10,9 @@ class ApiProvider {
 
   Future<void> getData() async {
     Response response =
-    await apiClient.dio.get("${apiClient.dio.options.baseUrl}endPoint");
+        await apiClient.dio.get("${apiClient.dio.options.baseUrl}endPoint");
 
-    if (response.statusCode! >= 200 && response.statusCode! < 300) {
+    if (response.statusCode == HttpStatus.ok) {
     } else {
       throw Exception();
     }

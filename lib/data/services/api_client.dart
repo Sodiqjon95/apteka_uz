@@ -1,5 +1,6 @@
 import 'package:apteka_uz/data/services/custom_exeptions.dart';
-import 'package:apteka_uz/utils/constantes.dart';
+import 'package:apteka_uz/utils/constants.dart';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
