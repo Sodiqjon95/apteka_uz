@@ -7,8 +7,8 @@ class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
-class _SplashScreenState extends State<SplashScreen> {
 
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     _init();
@@ -18,18 +18,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-        Center(child: Image.asset("assets/images/images-removebg-preview.png"))
-      ],),
+      body: Center(
+        child: Image.asset("assets/images/images-removebg-preview.png"),
+      ),
     );
   }
 
-
-
   Future<void> _init() async {
-    await Future.delayed(const Duration(seconds: 3), () {
+    await Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushReplacementNamed(context, homePage);
     });
   }
