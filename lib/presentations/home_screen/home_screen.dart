@@ -11,9 +11,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        Center(child:  Text("Home PAge"),)
-      ],),
+      body: Column(
+        children: const [
+          Center(
+            child: Text("Home PAge"),
+          )
+        ],
+      ),
     );
   }
 }

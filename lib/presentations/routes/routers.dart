@@ -1,10 +1,9 @@
-import 'package:apteka_uz/utils/constantes.dart';
-import 'package:apteka_uz/views/auth/login.dart';
-import 'package:apteka_uz/views/auth/register.dart';
-import 'package:apteka_uz/views/home_page.dart';
-import 'package:apteka_uz/views/splesh_screen.dart';
+import 'package:apteka_uz/presentations/auth/login_screen/login_screen.dart';
+import 'package:apteka_uz/presentations/auth/register_screen/register_screen.dart';
+import 'package:apteka_uz/presentations/home_screen/home_screen.dart';
+import 'package:apteka_uz/presentations/splash_screen.dart';
+import 'package:apteka_uz/utils/constants.dart';
 import 'package:flutter/material.dart';
-
 
 class MyRouter {
   static Route? generateRoute(RouteSettings settings) {
@@ -32,5 +31,5 @@ class MyRouter {
 }
 
 MaterialPageRoute navigateTo(Widget widget) => MaterialPageRoute(
-  builder: (context) => widget,
-);
+      builder: (context) => widget,
+    );
