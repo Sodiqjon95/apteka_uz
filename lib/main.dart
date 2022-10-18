@@ -1,4 +1,5 @@
 import 'package:apteka_uz/cubits/auth/auth_cubit.dart';
+import 'package:apteka_uz/data/local/storage/storage.dart';
 import 'package:apteka_uz/data/repositories/drugs_repository.dart';
 import 'package:apteka_uz/data/services/api_client.dart';
 import 'package:apteka_uz/data/services/api_provider.dart';
@@ -23,6 +24,7 @@ class App extends StatelessWidget {
       create: (context) => ProductsRepository(
         apiService: ApiProvider(
           apiClient: ApiClient(),
+          storageRepository: StorageRepository(),
         ),
       ),
       child: BlocProvider(

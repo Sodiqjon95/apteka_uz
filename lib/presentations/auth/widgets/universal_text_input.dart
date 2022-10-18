@@ -27,6 +27,7 @@ class UniversalTextInput extends StatelessWidget {
     return Form(
       key: key,
       child: Container(
+        height: MediaQuery.of(context).size.height * 0.08,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: TextFormField(
           cursorColor: Colors.blue,
@@ -48,15 +49,19 @@ class UniversalTextInput extends StatelessWidget {
             labelStyle: MyTextStyle.sfProMedium
                 .copyWith(color: Theme.of(context).hintColor),
             enabled: true,
-            enabledBorder: const OutlineInputBorder(
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
                 borderSide: BorderSide(color: Colors.blue, width: 1)),
-            errorBorder: const OutlineInputBorder(
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(color: Colors.red),
             ),
-            focusedErrorBorder: const OutlineInputBorder(
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(color: Colors.red),
             ),
-            focusedBorder: const OutlineInputBorder(
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
                 borderSide: BorderSide(color: Colors.blue, width: 1)),
           ),
         ),

@@ -3,7 +3,6 @@ import 'package:apteka_uz/utils/style.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-
 class PhoneInputComponent extends StatefulWidget {
   const PhoneInputComponent(
       {Key? key,
@@ -54,10 +53,10 @@ class _PhoneInputComponentState extends State<PhoneInputComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: MediaQuery.of(context).size.height * 0.08,
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(16),
           border: Border.all(width: 1, color: Colors.blue)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -68,12 +67,12 @@ class _PhoneInputComponentState extends State<PhoneInputComponent> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // const SizedBox(height: 2),
               Text(
                 "+998 ",
                 style: MyTextStyle.sfProSemibold
                     .copyWith(color: MyColors.textColor, fontSize: 16),
               ),
+              const SizedBox(height: 2),
             ],
           ),
           Expanded(

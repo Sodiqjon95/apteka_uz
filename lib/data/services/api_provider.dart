@@ -8,8 +8,8 @@ import 'package:flutter/widgets.dart';
 
 import 'api_client.dart';
 
-class ApiService {
-  ApiService({required this.apiClient, required this.storageRepository});
+class ApiProvider {
+  ApiProvider({required this.apiClient, required this.storageRepository});
 
   ApiClient apiClient;
   StorageRepository storageRepository;
