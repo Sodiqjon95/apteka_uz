@@ -1,3 +1,4 @@
+import 'package:apteka_uz/presentations/auth/auth_page.dart';
 import 'package:apteka_uz/presentations/auth/login_screen/login_screen.dart';
 import 'package:apteka_uz/presentations/auth/register_screen/register_screen.dart';
 import 'package:apteka_uz/presentations/home_screen/home_screen.dart';
@@ -18,6 +19,8 @@ class MyRouter {
 
       case registerPage:
         return navigateTo(const RegisterPage());
+      case authPage:
+        return navigateTo(const AuthView());
 
       default:
         return navigateTo(

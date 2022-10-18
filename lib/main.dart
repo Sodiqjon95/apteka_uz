@@ -12,7 +12,7 @@ import 'package:get_storage/get_storage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  runApp(const MyApp());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
@@ -31,7 +31,7 @@ class App extends StatelessWidget {
           ),
         ),
       ],
-      child: BlocProvider(
+      child: BlocProvider<AuthCubit>(
         create: (context) => AuthCubit(
           productsRepository: context.read<ProductsRepository>(),
         ),

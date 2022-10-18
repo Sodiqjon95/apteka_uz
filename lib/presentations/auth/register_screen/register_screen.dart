@@ -44,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Text(
                 "Register",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 26,
                   fontWeight: FontWeight.w500,
                   color: Colors.blue,
                 ),

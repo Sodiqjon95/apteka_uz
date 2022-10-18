@@ -1,4 +1,4 @@
-import 'package:apteka_uz/data/models/products/drugs_item.dart';
+import 'package:apteka_uz/data/models/products/product_item.dart';
 import 'package:apteka_uz/data/services/api_provider.dart';
 
 class ProductsRepository {

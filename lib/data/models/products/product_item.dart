@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'drugs_item.g.dart';
+part 'product_item.g.dart';
 
 @JsonSerializable()
 class ProductItem {
@@ -23,7 +23,7 @@ class ProductItem {
       required this.quantity});
 
   factory ProductItem.fromJson(Map<String, dynamic> json) =>
-      _$DrugsItemFromJson(json);
+      _$ProductItemFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DrugsItemToJson(this);
+  Map<String, dynamic> toJson() => _$ProductItemToJson(this);
 }

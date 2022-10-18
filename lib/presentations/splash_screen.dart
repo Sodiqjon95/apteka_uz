@@ -27,12 +27,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _init() async {
     String routeName = '';
-    if (StorageRepository().storage.read("isRegistered") == false) {
-      routeName = registerPage;
-    } 
-    if (StorageRepository().storage.read("token") == null) {
-      routeName = loginPage;
-    } else {
+    if (StorageRepository().storage.read("isRegistered") != true ||
+        StorageRepository().storage.read("token") == null) {
+      routeName = authPage;
+    } else if (StorageRepository().storage.read("isRegistered") == true ||
+        StorageRepository().storage.read("token") != null) {
       routeName = homePage;
     }
     await Future.delayed(const Duration(seconds: 4));
