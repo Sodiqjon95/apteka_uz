@@ -28,6 +28,8 @@ dependencies:
   carousel_slider: ^4.1.1
   dio: ^4.0.6
   flutter_bloc: ^8.1.1
+  get_storage: ^2.0.3
+  mask_text_input_formatter: ^2.4.0
 
 
 dev_dependencies:
