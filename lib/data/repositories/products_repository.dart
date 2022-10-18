@@ -6,14 +6,14 @@ class ProductsRepository {
 
   ApiProvider apiService;
 
-  // Future<List<DrugsItem>> getProducts() => apiService.getData();
+  Future<List<ProductItem>> getProducts() => apiService.getData();
 
   // Future<bool> addProduct(
   //         {required String productName, required String productId}) =>
   //     apiService.addData(name: productName, id: productId);
 
-  // Future<bool> deleteProduct({required String id}) =>
-  //     apiService.deleteData(id: id);
+  Future<bool> deleteProduct({required String id}) =>
+      apiService.deleteData(id: id);
   Future<void> signUp(
           {required String firstName,
           required String lastName,
