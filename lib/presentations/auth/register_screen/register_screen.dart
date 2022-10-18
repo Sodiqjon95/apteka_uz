@@ -1,5 +1,5 @@
-import 'package:apteka_uz/views/auth/widgets/phone_input_component.dart';
-import 'package:apteka_uz/views/auth/widgets/universal_text_input.dart';
+import 'package:apteka_uz/presentations/auth/widgets/phone_input_component.dart';
+import 'package:apteka_uz/presentations/auth/widgets/universal_text_input.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
