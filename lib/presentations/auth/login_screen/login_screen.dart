@@ -23,12 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.blue,
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -54,33 +49,30 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
             ),
             SizedBox(
-              height: 110,
+              height: 210,
               width: 250,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 40,
-                    child: UniversalTextInput(
-                      onChanged: (String value) {
-                        email = value;
-                      },
-                      hintText: 'Email',
-                      keyBoardType: TextInputType.emailAddress,
-                      errorText: 'Email kiriting',
-                    ),
+                  Text("Email"),
+                  UniversalTextInput(
+                    onChanged: (String value) {
+                      email = value;
+                    },
+                    hintText: 'Email',
+                    keyBoardType: TextInputType.emailAddress,
+                    errorText: 'Email kiriting',
                   ),
-                  SizedBox(
-                    height: 40,
-                    child: UniversalTextInput(
-                      onChanged: (String value) {
-                        password = value;
-                      },
-                      hintText: 'Password',
-                      keyBoardType: TextInputType.text,
-                      errorText: 'A-Z, a-z, !-#, 0-9',
-                    ),
+                  Text("Password"),
+
+                  UniversalTextInput(
+                    onChanged: (String value) {
+                      password = value;
+                    },
+                    hintText: 'Password',
+                    keyBoardType: TextInputType.text,
+                    errorText: 'A-Z, a-z, !-#, 0-9',
                   ),
                 ],
               ),
@@ -99,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                 backgroundColor: MaterialStateProperty.all(Colors.blue),
               ),
               onPressed: () async {
+                debugPrint("Conteeeeex >>>> ${context.toString()}");
                 context
                     .read<AuthCubit>()
                     .signIn(context: context, email: email, password: password);

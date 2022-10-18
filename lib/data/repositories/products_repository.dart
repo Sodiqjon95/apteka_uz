@@ -13,7 +13,7 @@ class ProductsRepository {
   //     apiService.addData(name: productName, id: productId);
 
   Future<bool> deleteProduct({required String id}) =>
-      apiService.deleteData(id: id);
+      apiService.deleteProductById(id: id);
   Future<void> signUp(
           {required String firstName,
           required String lastName,

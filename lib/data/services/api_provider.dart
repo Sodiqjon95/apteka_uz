@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:apteka_uz/data/local/storage/storage.dart';
 import 'package:apteka_uz/data/models/products/product_item.dart';
+import 'package:apteka_uz/data/models/users/users_item.dart';
 import 'package:apteka_uz/utils/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
@@ -14,7 +15,7 @@ class ApiProvider {
   ApiClient apiClient;
   StorageRepository storageRepository;
 
-  Future<bool> deleteData({required String id}) async {
+  Future<bool> deleteProductById({required String id}) async {
     try {
       Response response = await apiClient.dio
           .delete("${apiClient.dio.options.baseUrl}$drugs/$id");
@@ -69,6 +70,26 @@ class ApiProvider {
     }
   }
 
+  // -------------------------------------------    USERS     ----------------------------
+  Future<List<UsersItem>> getAllUsers() async {
+    try {
+      Response response =
+          await apiClient.dio.get("${apiClient.dio.options.baseUrl}$users");
+      if (response.statusCode == HttpStatus.ok) {
+        List<UsersItem> users = (response.data as List?)
+                ?.map((e) => UsersItem.fromJson(e))
+                .toList() ??
+            [];
+        return users;
+      } else {
+        throw Exception();
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  // -------------------------------------------AUTHENTICATION----------------------------
   Future<void> signUp({
     required String firstName,
     required String lastName,

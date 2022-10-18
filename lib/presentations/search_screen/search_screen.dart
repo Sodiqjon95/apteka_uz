@@ -1,8 +1,6 @@
 import 'package:apteka_uz/data/models/products/product_item.dart';
 import 'package:apteka_uz/presentations/home_screen/widgets/drugs_widgets.dart';
-import 'package:apteka_uz/utils/color.dart';
 import 'package:apteka_uz/utils/icons.dart';
-import 'package:apteka_uz/utils/style.dart';
 import 'package:flutter/material.dart';
 
 class ProductSearchView extends SearchDelegate {
@@ -45,7 +43,6 @@ class ProductSearchView extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     List<ProductItem> suggestions = products.where((searchResult) {
-
       final result = searchResult.name.toLowerCase();
       final input = query.toLowerCase();
       return result.contains(input);
@@ -53,7 +50,12 @@ class ProductSearchView extends SearchDelegate {
     return ListView(
       children: List.generate(
         suggestions.length,
-        (index) => DrugsWidgets(image: MyIcons.drug, name: suggestions[index].name, price: suggestions[index].price.toString(), quantity: suggestions[index].quantity.toString())
+        (index) => DrugsWidgets(
+          image: MyIcons.drug,
+          name: suggestions[index].name,
+          price: suggestions[index].price.toString(),
+          quantity: suggestions[index].quantity.toString(),
+        ),
       ),
     );
   }

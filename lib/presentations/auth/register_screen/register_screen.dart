@@ -23,12 +23,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.blue,
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SizedBox(

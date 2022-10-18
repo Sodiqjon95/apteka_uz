@@ -18,37 +18,34 @@ class UniversalTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController controller = TextEditingController();
-    final GlobalKey key = GlobalKey();
+    // final TextEditingController controller = TextEditingController();
 
     return Form(
-      key: key,
       child: Container(
         height: MediaQuery.of(context).size.height * 0.08,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextFormField(
+
           cursorColor: Colors.blue,
           keyboardType: keyBoardType,
-          controller: controller,
+          // controller: controller,
           onChanged: onChanged,
           validator: (value) {
             if (keyBoardType == TextInputType.text) {
               return (value!.length <= 3) ? errorText : null;
-            } else if (keyBoardType == TextInputType.streetAddress) {
-              return (value!.length > 13 || value.isEmpty) ? errorText : null;
+            } else if (keyBoardType == TextInputType.emailAddress) {
+              return (value!.isEmpty) ? errorText : null;
             }
             return null;
           },
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
+
             hintText: hintText,
             hintStyle: MyTextStyle.sfProMedium.copyWith(),
-            labelStyle: MyTextStyle.sfProMedium
-                .copyWith(color: Theme.of(context).hintColor),
+            labelStyle: MyTextStyle.sfProMedium.copyWith(color: Colors.red),
             enabled: true,
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.blue, width: 1)),
+            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide(color: Colors.blue, width: 1)),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(color: Colors.red),
@@ -57,9 +54,7 @@ class UniversalTextInput extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(color: Colors.red),
             ),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.blue, width: 1)),
+            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide(color: Colors.blue, width: 1)),
           ),
         ),
       ),

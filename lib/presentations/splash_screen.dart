@@ -35,6 +35,6 @@ class _SplashScreenState extends State<SplashScreen> {
       routeName = homePage;
     }
     await Future.delayed(const Duration(seconds: 4));
-    Navigator.pushReplacementNamed(context, homePage);
+    Navigator.pushReplacementNamed(context, routeName);
   }
 }

@@ -8,3 +8,4 @@ const String BASE_URL = 'https://pharmacy-db-demo.herokuapp.com/api';
 const String drugs = "/drugs";
 const String register = "/accounts/register";
 const String login = "/accounts/login";
+const String users = '/api/users';
