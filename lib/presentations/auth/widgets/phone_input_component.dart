@@ -99,7 +99,7 @@ class _PhoneInputComponentState extends State<PhoneInputComponent> {
                   .copyWith(fontSize: 16, color: MyColors.textColor),
               decoration: InputDecoration(
                 hintStyle: MyTextStyle.sfProSemibold
-                    .copyWith(color: MyColors.textColor, fontSize: 16),
+                    .copyWith(color: Colors.grey, fontSize: 16),
                 hintText: "XX XXX-XX-XX",
                 contentPadding: const EdgeInsets.symmetric(vertical: 12),
                 focusedBorder: const OutlineInputBorder(

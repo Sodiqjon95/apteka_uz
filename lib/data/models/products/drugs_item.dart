@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'drugs_item.g.dart';
 
-
 @JsonSerializable()
-class DrugsItem {
-
+class ProductItem {
   @JsonKey(defaultValue: 0, name: "id")
   int id;
 
@@ -18,17 +16,13 @@ class DrugsItem {
   @JsonKey(defaultValue: 0.0, name: "quantity")
   double quantity;
 
+  ProductItem(
+      {required this.name,
+      required this.id,
+      required this.price,
+      required this.quantity});
 
-
-
-  DrugsItem({
-    required this.name,
-    required this.id,
-    required this.price,
-    required this.quantity
-  });
-
-  factory DrugsItem.fromJson(Map<String, dynamic> json) =>
+  factory ProductItem.fromJson(Map<String, dynamic> json) =>
       _$DrugsItemFromJson(json);
 
   Map<String, dynamic> toJson() => _$DrugsItemToJson(this);

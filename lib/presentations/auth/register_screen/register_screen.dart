@@ -15,6 +15,12 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  String firstName = '';
+  String lastName = '';
+  String email = '';
+  String password = '';
+  String phoneNumber = '';
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -58,35 +64,45 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   UniversalTextInput(
-                    onChanged: (String value) {},
+                    onChanged: (String value) {
+                      firstName = value;
+                    },
                     hintText: 'FirstName ',
                     initialText: '',
                     keyBoardType: TextInputType.text,
                     errorText: 'Ism kiriting',
                   ),
                   UniversalTextInput(
-                    onChanged: (String value) {},
+                    onChanged: (String value) {
+                      lastName = value;
+                    },
                     hintText: 'LastName ',
                     initialText: '',
                     keyBoardType: TextInputType.text,
                     errorText: 'Familya kiriting',
                   ),
                   UniversalTextInput(
-                    onChanged: (String value) {},
+                    onChanged: (String value) {
+                      email = value;
+                    },
                     hintText: 'Email',
                     initialText: '',
                     keyBoardType: TextInputType.emailAddress,
                     errorText: 'Email kiriting',
                   ),
                   UniversalTextInput(
-                    onChanged: (String value) {},
+                    onChanged: (String value) {
+                      password = value;
+                    },
                     hintText: 'Password',
                     initialText: '',
                     keyBoardType: TextInputType.text,
                     errorText: 'A-Z, a-z, !-#, 0-9',
                   ),
                   PhoneInputComponent(
-                    phoneText: (String value) {},
+                    phoneText: (String value) {
+                      phoneNumber = value;
+                    },
                     initialValue: '',
                     caption: 'phone number',
                   )
@@ -102,7 +118,6 @@ class _RegisterPageState extends State<RegisterPage> {
               child: TextButton(
                 style: ButtonStyle(
                   elevation: MaterialStateProperty.all(10),
-                  // shadowColor: MaterialStateProperty.all(MyColors.white),
                   minimumSize: MaterialStateProperty.all(
                     const Size(250, 50),
                   ),
@@ -120,7 +135,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 onPressed: () {
-                  context.read<AuthCubit>().signUp(context);
+                  context.read<AuthCubit>().signUp(
+                      context: context,
+                      firstName: firstName,
+                      lastName: lastName,
+                      email: email,
+                      password: password,
+                      phoneNumber: phoneNumber);
                 },
                 child: const Text(
                   "Register",
@@ -167,4 +188,3 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
-

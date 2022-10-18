@@ -1,3 +1,4 @@
+import 'package:apteka_uz/data/local/storage/storage.dart';
 import 'package:apteka_uz/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +26,16 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _init() async {
-
+    String routeName = '';
+    if (StorageRepository().storage.read("isRegistered") == false) {
+      routeName = registerPage;
+    } 
+    if (StorageRepository().storage.read("token") == null) {
+      routeName = loginPage;
+    } else {
+      routeName = homePage;
+    }
     await Future.delayed(const Duration(seconds: 4));
-    Navigator.pushReplacementNamed(context, registerPage);
-
+    Navigator.pushReplacementNamed(context, routeName);
   }
 }

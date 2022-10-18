@@ -1,6 +1,6 @@
 import 'package:apteka_uz/cubits/auth/auth_cubit.dart';
 import 'package:apteka_uz/data/local/storage/storage.dart';
-import 'package:apteka_uz/data/repositories/drugs_repository.dart';
+import 'package:apteka_uz/data/repositories/products_repository.dart';
 import 'package:apteka_uz/data/services/api_client.dart';
 import 'package:apteka_uz/data/services/api_provider.dart';
 import 'package:apteka_uz/presentations/routes/routers.dart';
@@ -20,15 +20,21 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider(
-      create: (context) => ProductsRepository(
-        apiService: ApiProvider(
-          apiClient: ApiClient(),
-          storageRepository: StorageRepository(),
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider(
+          create: (context) => ProductsRepository(
+            apiService: ApiProvider(
+              apiClient: ApiClient(),
+              storageRepository: StorageRepository(),
+            ),
+          ),
         ),
-      ),
+      ],
       child: BlocProvider(
-        create: (context) => AuthCubit(),
+        create: (context) => AuthCubit(
+          productsRepository: context.read<ProductsRepository>(),
+        ),
         child: const MyApp(),
       ),
     );

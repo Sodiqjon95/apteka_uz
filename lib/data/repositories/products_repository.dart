@@ -14,12 +14,19 @@ class ProductsRepository {
 
   // Future<bool> deleteProduct({required String id}) =>
   //     apiService.deleteData(id: id);
-  // Future signUp(
-  //         {required String userName,
-  //         required String email,
-  //         required String password}) =>
-  //     apiService.signUp(userName: userName, email: email, password: password);
-      
-  // Future signIn({required String email, required String password}) =>
-  //     apiService.signIn(email: email, password: password);
+  Future<void> signUp(
+          {required String firstName,
+          required String lastName,
+          required String email,
+          required String password,
+          required String phoneNumber}) async =>
+      apiService.signUp(
+          phoneNumber: phoneNumber,
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: password);
+
+  Future signIn({required String email, required String password}) async =>
+      apiService.signIn(email: email, password: password);
 }

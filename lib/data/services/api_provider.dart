@@ -16,7 +16,8 @@ class ApiProvider {
 
   Future<bool> deleteData({required String id}) async {
     try {
-      Response response = await apiClient.dio.delete("${apiClient.dio.options.baseUrl}$drugs/$id");
+      Response response = await apiClient.dio
+          .delete("${apiClient.dio.options.baseUrl}$drugs/$id");
       if (response.statusCode == 200) {
         return true;
       } else {
@@ -28,11 +29,15 @@ class ApiProvider {
     }
   }
 
-  Future<List<DrugsItem>> getData() async {
+  Future<List<ProductItem>> getData() async {
     try {
-      Response response = await apiClient.dio.get("${apiClient.dio.options.baseUrl}$drugs");
-      if (response.statusCode == 200) {
-        List<DrugsItem> products = (response.data as List?)?.map((e) => DrugsItem.fromJson(e)).toList() ?? [];
+      Response response =
+          await apiClient.dio.get("${apiClient.dio.options.baseUrl}$drugs");
+      if (response.statusCode == HttpStatus.ok) {
+        List<ProductItem> products = (response.data as List?)
+                ?.map((e) => ProductItem.fromJson(e))
+                .toList() ??
+            [];
         return products;
       } else {
         throw Exception();
@@ -42,19 +47,20 @@ class ApiProvider {
     }
   }
 
-  Future<DrugsItem> addData({
+  Future<ProductItem> addData({
     required String name,
     required double price,
     required double quantity,
   }) async {
     try {
-      Response response = await apiClient.dio.post("${apiClient.dio.options.baseUrl}$drugs", data: {
+      Response response = await apiClient.dio
+          .post("${apiClient.dio.options.baseUrl}$drugs", data: {
         "name": name,
         "price": price,
         "quantity": quantity,
       });
-      if (response.statusCode == 200) {
-        return DrugsItem.fromJson(response.data);
+      if (response.statusCode == HttpStatus.ok) {
+        return ProductItem.fromJson(response.data);
       } else {
         throw Exception();
       }
@@ -71,7 +77,8 @@ class ApiProvider {
     required String phoneNumber,
   }) async {
     try {
-      Response res = await apiClient.dio.post("${apiClient.dio.options.baseUrl}$register", data: {
+      Response res = await apiClient.dio
+          .post("${apiClient.dio.options.baseUrl}$register", data: {
         "firstName": firstName,
         "lastName": lastName,
         "image": "image.png",
@@ -94,7 +101,9 @@ class ApiProvider {
 
   Future<void> signIn({required String email, required String password}) async {
     try {
-      Response res = await apiClient.dio.post("${apiClient.dio.options.baseUrl}$login", data: {"email": email, "password": password});
+      Response res = await apiClient.dio.post(
+          "${apiClient.dio.options.baseUrl}$login",
+          data: {"email": email, "password": password});
       if (res.statusCode == HttpStatus.ok) {
         debugPrint(res.data.toString());
         storageRepository.storage.write('token', res.data['token']);
