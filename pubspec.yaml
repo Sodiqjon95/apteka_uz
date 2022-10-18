@@ -30,6 +30,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   get_storage: ^2.0.3
   mask_text_input_formatter: ^2.4.0
+  animate_do: ^2.1.0
 
 
 dev_dependencies:

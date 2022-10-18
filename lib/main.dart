@@ -1,4 +1,5 @@
 import 'package:apteka_uz/cubits/auth/auth_cubit.dart';
+import 'package:apteka_uz/cubits/products/products_cubit.dart';
 import 'package:apteka_uz/data/local/storage/storage.dart';
 import 'package:apteka_uz/data/repositories/products_repository.dart';
 import 'package:apteka_uz/data/services/api_client.dart';
@@ -12,7 +13,7 @@ import 'package:get_storage/get_storage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  runApp(const MyApp());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
@@ -31,10 +32,17 @@ class App extends StatelessWidget {
           ),
         ),
       ],
-      child: BlocProvider(
-        create: (context) => AuthCubit(
-          productsRepository: context.read<ProductsRepository>(),
-        ),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+          create: (context) => AuthCubit(
+            productsRepository: context.read<ProductsRepository>(),
+          ), ),
+          BlocProvider(
+            create: (context) => ProductsCubit(
+              productsRepository: context.read<ProductsRepository>(),
+            ), ),
+        ],
         child: const MyApp(),
       ),
     );

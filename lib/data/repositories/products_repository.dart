@@ -1,4 +1,4 @@
-import 'package:apteka_uz/data/models/products/drugs_item.dart';
+import 'package:apteka_uz/data/models/products/product_item.dart';
 import 'package:apteka_uz/data/services/api_provider.dart';
 
 class ProductsRepository {
@@ -6,14 +6,14 @@ class ProductsRepository {
 
   ApiProvider apiService;
 
-  // Future<List<DrugsItem>> getProducts() => apiService.getData();
+  Future<List<ProductItem>> getProducts() => apiService.getData();
 
   // Future<bool> addProduct(
   //         {required String productName, required String productId}) =>
   //     apiService.addData(name: productName, id: productId);
 
-  // Future<bool> deleteProduct({required String id}) =>
-  //     apiService.deleteData(id: id);
+  Future<bool> deleteProduct({required String id}) =>
+      apiService.deleteData(id: id);
   Future<void> signUp(
           {required String firstName,
           required String lastName,

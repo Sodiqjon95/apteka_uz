@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:apteka_uz/data/local/storage/storage.dart';
-import 'package:apteka_uz/data/models/products/drugs_item.dart';
+import 'package:apteka_uz/data/models/products/product_item.dart';
 import 'package:apteka_uz/utils/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
