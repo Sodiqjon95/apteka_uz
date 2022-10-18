@@ -6,13 +6,11 @@ class UniversalTextInput extends StatelessWidget {
     Key? key,
     required this.onChanged,
     required this.hintText,
-    required this.initialText,
     required this.keyBoardType,
     required this.errorText,
   }) : super(key: key);
 
   final String hintText;
-  final String initialText;
   final String errorText;
   final TextInputType keyBoardType;
 
@@ -21,7 +19,6 @@ class UniversalTextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController controller = TextEditingController();
-    controller.text = initialText;
     final GlobalKey key = GlobalKey();
 
     return Form(

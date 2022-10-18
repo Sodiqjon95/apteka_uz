@@ -67,7 +67,6 @@ class _LoginPageState extends State<LoginPage> {
                         email = value;
                       },
                       hintText: 'Email',
-                      initialText: '',
                       keyBoardType: TextInputType.emailAddress,
                       errorText: 'Email kiriting',
                     ),
@@ -79,7 +78,6 @@ class _LoginPageState extends State<LoginPage> {
                         password = value;
                       },
                       hintText: 'Password',
-                      initialText: '',
                       keyBoardType: TextInputType.text,
                       errorText: 'A-Z, a-z, !-#, 0-9',
                     ),

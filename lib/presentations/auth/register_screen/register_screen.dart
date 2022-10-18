@@ -68,7 +68,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       firstName = value;
                     },
                     hintText: 'FirstName ',
-                    initialText: '',
                     keyBoardType: TextInputType.text,
                     errorText: 'Ism kiriting',
                   ),
@@ -77,7 +76,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       lastName = value;
                     },
                     hintText: 'LastName ',
-                    initialText: '',
                     keyBoardType: TextInputType.text,
                     errorText: 'Familya kiriting',
                   ),
@@ -86,7 +84,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       email = value;
                     },
                     hintText: 'Email',
-                    initialText: '',
                     keyBoardType: TextInputType.emailAddress,
                     errorText: 'Email kiriting',
                   ),
@@ -95,7 +92,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       password = value;
                     },
                     hintText: 'Password',
-                    initialText: '',
                     keyBoardType: TextInputType.text,
                     errorText: 'A-Z, a-z, !-#, 0-9',
                   ),

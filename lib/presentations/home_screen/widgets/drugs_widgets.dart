@@ -36,9 +36,12 @@ class DrugsWidgets extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset(
-              image,
-              width: 200,
+            ClipRRect(
+              borderRadius: const BorderRadius.horizontal(left: Radius.circular(15)),
+              child: Image.asset(
+                image,
+                width: 150,
+              ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
