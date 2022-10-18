@@ -9,16 +9,15 @@ class MyRouter {
   static Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splashPage:
-        return navigateTo(SplashScreen());
-
+        return navigateTo(const SplashScreen());
       case homePage:
-        return navigateTo(MyHomePage());
+        return navigateTo(const MyHomePage());
 
       case loginPage:
-        return navigateTo(LoginPage());
+        return navigateTo(const LoginPage());
 
       case registerPage:
-        return navigateTo(RegisterPage());
+        return navigateTo(const RegisterPage());
 
       default:
         return navigateTo(
