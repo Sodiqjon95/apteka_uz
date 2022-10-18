@@ -35,13 +35,15 @@ class App extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-          create: (context) => AuthCubit(
-            productsRepository: context.read<ProductsRepository>(),
-          ), ),
+            create: (context) => AuthCubit(
+              productsRepository: context.read<ProductsRepository>(),
+            ),
+          ),
           BlocProvider(
             create: (context) => ProductsCubit(
               productsRepository: context.read<ProductsRepository>(),
-            ), ),
+            ),
+          ),
         ],
         child: const MyApp(),
       ),
@@ -61,7 +63,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: MyRouter.generateRoute,
-      initialRoute: splashPage,
+      initialRoute: homePage,
     );
   }
 }

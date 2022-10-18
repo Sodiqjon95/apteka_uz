@@ -30,19 +30,4 @@ class ProductsCubit extends Cubit<ProductsState> {
 
 }
 
-class ProductsInProgress extends ProductsState {}
 
-class ProductsInSuccess extends ProductsState {
-  ProductsInSuccess({required this.products});
-
-  List<ProductItem> products;
-}
-
-class ProductsInFailure extends ProductsState {
-  ProductsInFailure({required this.errorText});
-  String errorText;
-
-
-
-
-}

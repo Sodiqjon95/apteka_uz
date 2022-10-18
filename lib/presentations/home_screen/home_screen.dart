@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:apteka_uz/cubits/products/products_cubit.dart';
+import 'package:apteka_uz/data/models/products/product_item.dart';
+import 'package:apteka_uz/presentations/search_screen/search_screen.dart';
 import 'package:apteka_uz/utils/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +16,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<ProductItem> products = [];
   @override
   void initState() {
     BlocProvider.of<ProductsCubit>(context).getAllProduct();
@@ -34,10 +37,21 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text("Dorilar"),
+          actions: [
+            IconButton(
+                onPressed: () => showSearch(
+                      context: context,
+                      delegate: ProductSearchView(
+                        products: products,
+                      ),
+                    ),
+                icon: const Icon(Icons.search))
+          ],
           centerTitle: true,
         ),
         body: SafeArea(
-          child: BlocBuilder<ProductsCubit, ProductsState>(builder: (context, state) {
+          child: BlocBuilder<ProductsCubit, ProductsState>(
+              builder: (context, state) {
             if (state is ProductsInProgress) {
               return const Center(
                 child: CircularProgressIndicator.adaptive(),
@@ -47,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text(state.errorText.toString()),
               );
             } else if (state is ProductsInSuccess) {
+              products = state.products;
               return ListView.builder(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 5,

@@ -9,6 +9,7 @@ class ProductsInProgress extends ProductsState {}
 
 class ProductsInSuccess extends ProductsState {
   ProductsInSuccess({required this.products});
+
   List<ProductItem> products;
 }
 
